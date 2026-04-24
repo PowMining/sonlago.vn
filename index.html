@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonla Go - Hệ Sinh Thái Tiện Ích Số</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Biến màu sắc chủ đạo */
+        :root {
+            --primary-yellow: #FFC107;
+            --primary-yellow-hover: #e0a800;
+            --primary-green: #2E7D32;
+            --dark-green: #1b5e20;
+            --light-green: #e8f5e9;
+            --dark-bg: #1a1a1a;
+            --text-main: #333;
+            --text-light: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Áp dụng Montserrat cho toàn bộ trang */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #fcfcfc;
+        }
+
+        /* ---------------- Hero Section (Có hồn & Động) ---------------- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            overflow: hidden;
+            /* Hiệu ứng nền dải màu chuyển động */
+            background: linear-gradient(-45deg, var(--primary-green), var(--dark-green), #0a3d11, #248a31);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Đốm sáng lơ lửng (Tạo hồn cho trang) */
+        .circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .circles li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 193, 7, 0.2);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+            border-radius: 50%;
+        }
+
+        .circles li:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
+        .circles li:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+        .circles li:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
+        .circles li:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; }
+        .circles li:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
+        .circles li:nth-child(6) { left: 75%; width: 110px; height: 110px; animation-delay: 3s; background: rgba(255, 255, 255, 0.05); }
+        .circles li:nth-child(7) { left: 35%; width: 150px; height: 150px; animation-delay: 7s; background: rgba(255, 255, 255, 0.05); }
+
+        @keyframes animate {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 50%; }
+            100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%; }
+        }
+
+        /* --- NỘI DUNG HERO --- */
+        .hero-content {
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Huy hiệu Coming Soon */
+        .coming-soon-badge {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.5);
+            color: var(--primary-yellow);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            backdrop-filter: blur(5px);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        /* Logo CSS */
+        .css-logo {
+            font-size: 4.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulseGlow 2.5s infinite alternate;
+        }
+
+        .css-logo .sonla { color: white; text-shadow: 3px 3px 0px rgba(0,0,0,0.2); }
+        .css-logo .go { color: var(--primary-yellow); margin-left: 15px; text-shadow: 3px 3px 0px rgba(0,0,0,0.2); }
+        .css-logo .dot { color: var(--primary-yellow); }
+
+        .hero h1 {
+            color: white;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin-bottom: 30px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 400;
+        }
+
+        /* Đồng hồ đếm ngược nhỏ gọn */
+        .mini-countdown {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .time-item {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 65px;
+        }
+
+        .time-item span {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-yellow);
+            line-height: 1.2;
+        }
+
+        .time-item small {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            font-size: 2rem;
+            color: var(--primary-yellow);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        /* ---------------- Layout Container chung ---------------- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-green);
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            position: relative;
+            font-weight: 800;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-yellow);
+            display: block;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* 1. Tầm nhìn & Sứ mệnh */
+        .vision-mission {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .vm-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--primary-green);
+            transition: transform 0.3s ease;
+        }
+
+        .vm-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .vm-card i {
+            font-size: 3.5rem;
+            color: var(--primary-yellow);
+            margin-bottom: 20px;
+        }
+
+        .vm-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-style: italic;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        /* 2. Giá trị cốt lõi */
+        .bg-light { background-color: var(--light-green); }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .value-item {
+            background: white;
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 15px;
+            border-bottom: 5px solid var(--primary-yellow);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .value-item:hover { transform: translateY(-5px); }
+
+        .value-item i {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            background: var(--light-green);
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            border-radius: 50%;
+            margin-bottom: 25px;
+        }
+
+        .value-item h3 {
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        /* 3. Đội ngũ sáng lập */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+        }
+
+        .team-icon {
+            width: 110px;
+            height: 110px;
+            background: var(--primary-green);
+            color: white;
+            font-size: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border: 4px solid var(--primary-yellow);
+        }
+
+        .team-member h3 { color: var(--primary-green); margin-bottom: 5px; font-size: 1.3rem; font-weight: 700;}
+        .team-member h4 { color: var(--primary-yellow); font-size: 0.9rem; margin-bottom: 15px; font-weight: 700; text-transform: uppercase;}
+
+        /* 4. Lộ trình phát triển */
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::after {
+            content: ''; position: absolute; width: 4px; background-color: var(--primary-yellow);
+            top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px;
+        }
+        .timeline-item { padding: 20px 40px; position: relative; background-color: inherit; width: 50%; }
+        .timeline-item.left { left: 0; text-align: right; }
+        .timeline-item.right { left: 50%; }
+        .timeline-item::after {
+            content: ''; position: absolute; width: 24px; height: 24px; right: -12px;
+            background-color: white; border: 5px solid var(--primary-green); top: 30px; border-radius: 50%; z-index: 1;
+        }
+        .timeline-item.right::after { left: -12px; }
+        .timeline-content {
+            padding: 30px; background-color: white; position: relative; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .timeline-content h3 { color: var(--primary-green); margin-bottom: 15px; font-size: 1.3rem; font-weight: 700;}
+
+        /* 5. Công nghệ Zalo */
+        .tech-box {
+            background: linear-gradient(135deg, #0068FF 0%, #004ecc 100%);
+            color: white; padding: 60px 40px; border-radius: 20px; text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 104, 255, 0.3); position: relative; overflow: hidden;
+        }
+        .tech-box h2 { color: var(--primary-yellow); font-size: 2.2rem; margin-bottom: 25px; text-transform: uppercase; font-weight: 800;}
+        .tech-box p { font-size: 1.15rem; max-width: 850px; margin: 0 auto; position: relative; z-index: 2; line-height: 1.8; font-weight: 400;}
+        .tech-icons { margin-top: 40px; font-size: 3rem; color: white; position: relative; z-index: 2; display: flex; justify-content: center; gap: 40px; }
+        
+        /* Footer */
+        footer { background: var(--dark-bg); color: white; text-align: center; padding: 50px 20px; }
+        .footer-slogan { color: var(--primary-yellow); font-size: 1.5rem; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulseGlow {
+            0% { transform: scale(1); text-shadow: 0 0 15px rgba(255, 193, 7, 0.4); }
+            100% { transform: scale(1.05); text-shadow: 0 0 30px rgba(255, 193, 7, 0.8), 0 0 10px rgba(255, 255, 255, 0.5); }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .css-logo { font-size: 3rem; flex-direction: column; }
+            .css-logo .go { margin-left: 0; margin-top: -10px; }
+            .hero h1 { font-size: 1.4rem; }
+            .hero p { font-size: 1rem; padding: 0 15px; }
+            .mini-countdown { gap: 10px; }
+            .time-item { min-width: 55px; padding: 8px 10px; }
+            .time-item span { font-size: 1.2rem; }
+            .vision-mission { grid-template-columns: 1fr; }
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 0px; text-align: left; }
+            .timeline-item.left::after, .timeline-item.right::after { left: 19px; }
+            .timeline-item.right { left: 0%; }
+            .tech-icons { flex-wrap: wrap; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <ul class="circles">
+            <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+        </ul>
+
+        <div class="hero-content">
+            <div class="coming-soon-badge">Coming Soon</div>
+
+            <div class="css-logo">
+                <span class="sonla">Sonla</span>
+                <span class="go">Go<span class="dot">!</span></span>
+            </div>
+
+            <h1>Hệ Sinh Thái Tiện Ích Số</h1>
+            <p>Chuẩn bị ra mắt Siêu ứng dụng kết nối giao thương thông minh, minh bạch và tiết kiệm nhất dành riêng cho người dân Sơn La.</p>
+            
+            <div class="mini-countdown" id="countdown">
+                <div class="time-item"><span id="days">00</span><small>Ngày</small></div>
+                <div class="time-item"><span id="hours">00</span><small>Giờ</small></div>
+                <div class="time-item"><span id="minutes">00</span><small>Phút</small></div>
+                <div class="time-item"><span id="seconds">00</span><small>Giây</small></div>
+            </div>
+        </div>
+        
+        <a href="#about" style="text-decoration: none;">
+            <i class="fas fa-chevron-down scroll-down"></i>
+        </a>
+    </header>
+
+    <section id="about" class="container">
+        <p class="intro-text">"Trong kỷ nguyên số, người dân Sơn La xứng đáng được tận hưởng những dịch vụ tiện ích ngang tầm với các đô thị lớn. Sonla Go ra đời từ khát vọng đó."</p>
+        
+        <div class="vision-mission">
+            <div class="vm-card">
+                <i class="fas fa-bullseye"></i>
+                <h3>Sứ mệnh</h3>
+                <p>Xây dựng một nền tảng kết nối thông minh, giúp việc di chuyển, giao thương và ăn uống của người dân trở nên dễ dàng, minh bạch và tiết kiệm nhất.</p>
+            </div>
+            <div class="vm-card">
+                <i class="fas fa-eye"></i>
+                <h3>Tầm nhìn</h3>
+                <p>Trở thành "Siêu ứng dụng" hàng đầu tại tỉnh Sơn La, là cầu nối vững chắc giữa Khách hàng – Tài xế – Nhà bán hàng, góp phần thúc đẩy kinh tế số tại địa phương.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Giá trị cốt lõi</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Minh bạch</h3>
+                    <p>Giá cước được tính toán tự động bằng thuật toán, không còn nỗi lo "hét giá" mỗi khi di chuyển hay gửi hàng.</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Tiện ích</h3>
+                    <p>Tiếp cận đa kênh. Người dùng có thể đặt xe ngay trên Zalo mà không cần tải thêm ứng dụng, hoặc dùng Mobile App riêng.</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Cộng đồng</h3>
+                    <p>Cơ chế Affiliate (tích điểm giới thiệu) giúp mọi người dùng đều có thể đồng hành và nhận lợi ích cùng sự phát triển của dự án.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Đội ngũ sáng lập</h2>
+        <p class="intro-text">Dự án được vận hành bởi những người con ưu tú của Sơn La, am hiểu văn hóa địa phương và làm chủ công nghệ hiện đại.</p>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-icon"><i class="fas fa-user-tie"></i></div>
+                <h3>Mr. Hợp</h3>
+                <h4>Người sáng lập</h4>
+                <p>Kiến trúc sư trưởng về chiến lược và nền tảng công nghệ cho toàn bộ hệ sinh thái.</p>
+            </div>
+            <div class="team-member">
+                <div class="team-icon"><i class="fas fa-user-shield"></i></div>
+                <h3>Mr. Thịnh</h3>
+                <h4>Giám đốc điều hành</h4>
+                <p>Chịu trách nhiệm vận hành hệ thống, điều phối mạng lưới tài xế và đối tác.</p>
+            </div>
+            <div class="team-member">
+                <div class="team-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Mrs. Liên</h3>
+                <h4>Thành viên sáng lập</h4>
+                <p>Phụ trách phát triển thị trường và quan hệ đối tác chiến lược.</p>
+            </div>
+            <div class="team-member">
+                <div class="team-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Mrs. Hằng</h3>
+                <h4>Thành viên sáng lập</h4>
+                <p>Quản lý tài chính, đối soát và trải nghiệm khách hàng.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Lộ trình phát triển</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Giai đoạn 1: Nền tảng cốt lõi</h3>
+                        <p>Ra mắt dịch vụ Gọi xe (Taxi 4/5/7 chỗ) và Giao hàng thu hộ COD. Tập trung tối ưu trải nghiệm người dùng trên các nền tảng số.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Giai đoạn 2: Mở rộng hệ sinh thái</h3>
+                        <p>Tích hợp module <b>Food Delivery</b> (Đặt đồ ăn) và <b>Đi chợ hộ</b>. Kết nối các chủ quán tại địa phương vào hệ thống, tạo ra mạng lưới cung ứng toàn diện.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="tech-box">
+            <h2>Trải nghiệm đặt xe không chạm tải</h2>
+            <p>Sonla Go mang đến sự tiện lợi tối đa khi tiên phong tích hợp hệ thống gọi xe và giao hàng trực tiếp vào <b>Zalo OA</b> và <b>Zalo Mini App</b>. Khách hàng không cần phải tải thêm ứng dụng nặng máy hay tốn thời gian đăng ký tài khoản phức tạp. Mọi thao tác từ đặt cuốc, theo dõi hành trình tài xế đến thanh toán đều diễn ra mượt mà ngay trên ứng dụng tin nhắn mà mọi người dân Sơn La đều đã quen thuộc.</p>
+            <div class="tech-icons">
+                <i class="fas fa-comment-dots" title="Chatbot OA"></i>
+                <i class="fas fa-map-marker-alt" title="Định vị"></i>
+                <i class="fas fa-bolt" title="Nhanh chóng"></i>
+                <i class="fas fa-qrcode" title="Mini App"></i>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-slogan">Sonla Go – Công nghệ của người Sơn La, phục vụ người Sơn La!</div>
+        <p style="color: rgba(255,255,255,0.7); margin-top: 10px; font-weight: 500;">© 2026 CÔNG TY CỔ PHẦN CÔNG NGHỆ & DỊCH VỤ SONLA GO.</p>
+    </footer>
+
+    <script>
+        // Cuộn mượt
+        document.querySelector('.scroll-down').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Đồng hồ đếm ngược đến 20/06/2026
+        const launchDate = new Date("June 20, 2026 00:00:00").getTime();
+
+        const countdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("countdown").innerHTML = "<div style='color: #FFC107; font-weight: bold; font-size: 1.2rem; margin-top: 10px;'>ĐÃ CHÍNH THỨC RA MẮT!</div>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
