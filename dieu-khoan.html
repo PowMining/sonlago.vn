@@ -3,392 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Điều khoản sử dụng - Sonla Go</title>
-    <!-- Font Montserrat -->
+    <title>Sonla Go - Điều khoản sử dụng</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        :root {
-            --brand-yellow: #FFC107;
-            --brand-yellow-dark: #FFB300;
-            --brand-green: #2E7D32;
-            --text-dark: #111111;
-            --text-gray: #555555;
-            --bg-gray: #f8f9fa;
-            --border-color: #eeeeee;
-        }
+        :root { --brand-yellow: #FFC107; --brand-green: #2E7D32; --text-dark: #111111; --text-gray: #555555; --bg-gray: #f8f9fa; --border-color: #eeeeee; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { color: var(--text-dark); line-height: 1.6; background-color: #ffffff; }
+        a { text-decoration: none; color: inherit; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        body {
-            color: var(--text-dark);
-            line-height: 1.6;
-            background-color: #ffffff;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ---------------- HEADER (Giữ nguyên) ---------------- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 40px;
-            height: 80px;
-            background-color: #ffffff;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo-container { font-size: 1.8rem; font-weight: 900; display: flex; }
-        .logo-container .sonla { color: var(--text-dark); }
-        .logo-container .go { color: var(--brand-yellow); margin-left: 5px; }
-
+        /* HEADER */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; height: 80px; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; background: #fff; z-index: 100;}
+        .logo-container img { height: 40px; width: auto; display: block; }
         .nav-links { display: flex; gap: 30px; font-weight: 600; font-size: 0.95rem; }
-        .nav-links a { padding: 28px 0; border-bottom: 3px solid transparent; transition: all 0.2s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--brand-yellow-dark); border-bottom: 3px solid var(--brand-yellow); }
-
-        .header-actions { display: flex; align-items: center; gap: 20px; }
-        .btn-download { background-color: var(--brand-yellow); color: var(--text-dark); font-weight: 700; padding: 12px 24px; border-radius: 4px; font-size: 0.9rem; transition: background-color 0.2s; }
-        .btn-download:hover { background-color: var(--brand-yellow-dark); }
-
-        .lang-switch { font-weight: 700; font-size: 0.9rem; color: var(--text-gray); }
-        .lang-switch span.active { color: var(--text-dark); }
-
+        .nav-links a { padding: 28px 0; border-bottom: 3px solid transparent; transition: 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--brand-yellow); border-bottom: 3px solid var(--brand-yellow); }
         .yellow-stripe { height: 40px; background-color: var(--brand-yellow); width: 100%; }
 
-        /* ---------------- BREADCRUMB ---------------- */
-        .breadcrumb {
-            max-width: 1200px;
-            margin: 20px auto 0;
-            padding: 0 20px;
-            font-size: 0.9rem;
-            color: var(--text-gray);
-            font-weight: 500;
-        }
-        .breadcrumb a { color: var(--brand-green); font-weight: 600; }
-        .breadcrumb a:hover { text-decoration: underline; }
+        /* CONTENT */
+        .policy-container { max-width: 1200px; margin: 40px auto 80px; padding: 0 20px; display: flex; gap: 50px; }
+        .sidebar { flex: 0 0 280px; position: sticky; top: 100px; height: fit-content;}
+        .sidebar h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 20px; text-transform: uppercase; }
+        .sidebar ul { list-style: none; border-left: 2px solid var(--border-color); }
+        .sidebar ul li a { display: block; padding: 12px 20px; font-size: 0.95rem; font-weight: 600; color: var(--text-gray); transition: 0.2s; border-left: 2px solid transparent; margin-left: -2px;}
+        .sidebar ul li a:hover, .sidebar ul li a.active { color: var(--brand-green); border-left: 2px solid var(--brand-green); }
+        .sidebar ul li a.active { background: var(--bg-gray); border-radius: 0 8px 8px 0;}
 
-        /* ---------------- POLICY LAYOUT ---------------- */
-        .policy-container {
-            max-width: 1200px;
-            margin: 40px auto 80px;
-            padding: 0 20px;
-            display: flex;
-            gap: 50px;
-            align-items: flex-start;
-        }
+        .content-area { flex: 1; text-align: justify; }
+        .content-area h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; }
+        .content-area h2 { font-size: 1.3rem; color: var(--brand-green); margin: 30px 0 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;}
+        .content-area p { margin-bottom: 15px; font-size: 1.05rem; }
 
-        /* Sidebar Điều hướng */
-        .sidebar {
-            flex: 0 0 280px;
-            position: sticky;
-            top: 100px;
-        }
-
-        .sidebar h3 {
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: var(--text-dark);
-            text-transform: uppercase;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            border-left: 2px solid var(--border-color);
-        }
-
-        .sidebar ul li a {
-            display: block;
-            padding: 12px 20px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-gray);
-            transition: all 0.2s;
-            position: relative;
-            left: -2px;
-            border-left: 2px solid transparent;
-        }
-
-        .sidebar ul li a:hover {
-            color: var(--brand-green);
-        }
-
-        .sidebar ul li a.active {
-            color: var(--brand-green);
-            border-left: 2px solid var(--brand-green);
-            background-color: var(--bg-gray);
-            border-radius: 0 8px 8px 0;
-        }
-
-        /* Nội dung Điều khoản */
-        .content-area {
-            flex: 1;
-        }
-
-        .content-area h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .content-area .last-update {
-            font-size: 0.9rem;
-            color: var(--text-gray);
-            margin-bottom: 40px;
-            font-style: italic;
-        }
-
-        .content-area h2 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--brand-green);
-            margin: 40px 0 15px 0;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .content-area p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-            color: #333;
-            text-align: justify;
-        }
-
-        .content-area strong {
-            color: var(--text-dark);
-        }
-
-        /* ---------------- FOOTER (Giữ nguyên) ---------------- */
-        footer { padding: 60px 40px; background-color: #ffffff; border-top: 1px solid var(--border-color); }
+        /* FOOTER */
+        footer { padding: 60px 40px 20px; border-top: 1px solid var(--border-color); background: #fff;}
         .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; gap: 30px; }
         .footer-col h5 { font-size: 1rem; font-weight: 700; margin-bottom: 20px; }
         .footer-col ul { list-style: none; }
         .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul a { font-size: 0.85rem; color: var(--text-dark); font-weight: 500; }
+        .footer-col ul a { font-size: 0.85rem; color: var(--text-dark); font-weight: 500; transition: 0.2s;}
         .footer-col ul a:hover { color: var(--brand-green); }
-        .company-info h4 { font-size: 1.5rem; font-weight: 900; margin-bottom: 5px; }
-        .company-info p { font-size: 0.85rem; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; }
-        .social-icons { display: flex; gap: 15px; margin-bottom: 30px; }
-        .social-icons a { font-size: 1.5rem; color: var(--text-dark); }
-        .app-badges { display: flex; flex-direction: column; gap: 10px; }
-        .app-badges img { width: 120px; border-radius: 6px; }
+        .company-info p { font-size: 0.85rem; font-weight: 700; margin: 15px 0; text-transform: uppercase; }
+        .social-icons a { font-size: 1.5rem; color: var(--text-dark); margin-right: 15px; }
+        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); color: var(--text-gray); font-size: 0.9rem; }
 
-        /* Responsive */
-        @media screen and (max-width: 1024px) {
-            .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
-        }
-        @media screen and (max-width: 768px) {
-            .nav-links, .lang-switch { display: none; }
-            .policy-container { flex-direction: column; }
-            .sidebar { position: static; flex: none; width: 100%; border-bottom: 1px solid var(--border-color); padding-bottom: 20px; }
-            .sidebar ul { border-left: none; display: flex; flex-wrap: wrap; gap: 10px; }
-            .sidebar ul li a { border-left: none; border-bottom: 2px solid transparent; padding: 10px; }
-            .sidebar ul li a.active { border-left: none; border-bottom: 2px solid var(--brand-green); background-color: transparent; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            .content-area h1 { font-size: 1.8rem; }
-        }
-        @media screen and (max-width: 480px) {
-            .footer-grid { grid-template-columns: 1fr; }
-            header { padding: 0 20px; }
-        }
+        @media screen and (max-width: 900px) { .policy-container { flex-direction: column; } .sidebar { position: static; } .footer-grid { grid-template-columns: 1fr 1fr; } .nav-links {display: none;} }
     </style>
 </head>
 <body>
-
-    <!-- Header -->
     <header>
-        <div class="logo-container">
-            <span class="sonla">Sonla</span><span class="go">Go</span>
-        </div>
+        <div class="logo-container"><a href="index.html"><img src="logo.png" alt="Sonla Go"></a></div>
         <nav class="nav-links">
-            <a href="#">Công ty</a>
-            <a href="#">Khách hàng cá nhân</a>
-            <a href="#">Khách hàng doanh nghiệp</a>
-            <a href="#">Tài xế</a>
-            <a href="#">Đối tác nhà hàng</a>
-            <a href="#" class="active">Hỗ trợ</a>
+            <a href="cong-ty.html">Công ty</a>
+            <a href="index.html">Khách hàng cá nhân</a>
+            <a href="doanh-nghiep.html">Khách hàng doanh nghiệp</a>
+            <a href="tai-xe.html">Tài xế</a>
+            <a href="nha-hang.html">Đối tác nhà hàng</a>
+            <a href="dieu-khoan.html" class="active">Hỗ trợ</a>
         </nav>
-        <div class="header-actions">
-            <a href="#" class="btn-download">TẢI ỨNG DỤNG NGAY</a>
-            <div class="lang-switch">
-                <span class="active">VN</span> | <span>EN</span>
-            </div>
-        </div>
     </header>
-
-    <!-- Yellow Stripe -->
     <div class="yellow-stripe"></div>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <a href="#">Trang chủ</a> &nbsp; / &nbsp; <a href="#">Hỗ trợ</a> &nbsp; / &nbsp; Điều khoản sử dụng
-    </div>
-
-    <!-- Main Content -->
     <section class="policy-container">
-        <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <h3>Trung tâm Hỗ trợ</h3>
             <ul>
-                <li><a href="#" class="active">Điều khoản sử dụng</a></li>
+                <li><a href="dieu-khoan.html" class="active">Điều khoản sử dụng</a></li>
                 <li><a href="#">Chính sách bảo mật</a></li>
                 <li><a href="#">Quy chế hoạt động</a></li>
-                <li><a href="#">Nguyên tắc cộng đồng</a></li>
-                <li><a href="#">Câu hỏi thường gặp (FAQ)</a></li>
+                <li><a href="#">Câu hỏi thường gặp</a></li>
             </ul>
         </aside>
-
-        <!-- Legal Text Content -->
         <article class="content-area">
-            <h1>Điều khoản Sử dụng và Thỏa thuận Hợp tác</h1>
-            <div class="last-update">Cập nhật lần cuối: 31/05/2026</div>
+            <h1>Điều khoản Sử dụng</h1>
+            <p>Bằng việc sử dụng hệ sinh thái SONLA GO, Bạn thừa nhận đã đọc, hiểu rõ và đồng ý vô điều kiện với tất cả các nội dung quy định dưới đây[cite: 1].</p>
+            
+            <h2>1. Quy định chung</h2>
+            <p>SONLA GO là giải pháp nền tảng công nghệ đa thành phần bao gồm Mobile App, Zalo Mini App, hệ thống quản trị trung tâm, thuật toán điều phối tự động kết nối giữa Khách hàng, Tài xế và Nhà bán hàng tại địa phương[cite: 1].</p>
 
-            <p>Chào mừng Bạn đến với Hệ sinh thái tiện ích số <strong>SONLA GO</strong>. Thỏa thuận này quy định các điều khoản, điều kiện và quy tắc pháp lý áp dụng cho việc truy cập, sử dụng nền tảng công nghệ, ứng dụng di động, hệ thống Zalo Official Account (Zalo OA), Zalo Mini App và các dịch vụ đi kèm được vận hành bởi <strong>Công ty Cổ phần Công nghệ & Dịch vụ SONLA GO</strong> (sau đây gọi tắt là "SONLA GO" hoặc "Công ty").</p>
-            <p>Bằng việc đăng ký tài khoản, kích hoạt sử dụng hoặc tham gia vào bất kỳ phương thức hợp tác nào trên hệ thống của chúng tôi, Bạn thừa nhận đã đọc, hiểu rõ và đồng ý vô điều kiện với tất cả các nội dung quy định dưới đây.</p>
+            <h2>2. Quyền Sở hữu trí tuệ</h2>
+            <p>Toàn bộ quyền sở hữu trí tuệ bao gồm nhãn hiệu độc quyền "SONLA GO", logo thương hiệu, mã nguồn ứng dụng, giao diện đồ họa, cơ sở dữ liệu, thuật toán định giá và phân bổ cuốc xe đều thuộc quyền sở hữu duy nhất và tuyệt đối của Công ty Cổ phần Công nghệ & Dịch vụ SONLA GO[cite: 1].</p>
+            
+            <h2>3. Chính sách Bảo mật</h2>
+            <p>Chúng tôi cam kết bảo mật tuyệt đối dữ liệu cá nhân của Người dùng và Đối tác theo quy định của Luật An ninh mạng và các nghị định về bảo vệ dữ liệu cá nhân[cite: 1]. SONLA GO không bán, chia sẻ hoặc tiết lộ thông tin dữ liệu cho bên thứ ba ngoại trừ các trường hợp phục vụ trực tiếp cho việc vận hành cuốc xe hoặc khi có yêu cầu bằng văn bản từ cơ quan quản lý nhà nước có thẩm quyền[cite: 1].</p>
 
-            <h2>1. Quy định chung và Định nghĩa</h2>
-            <p><strong>1.1. Hệ sinh thái SONLA GO:</strong> Là giải pháp nền tảng công nghệ đa thành phần, bao gồm nhưng không giới hạn ở Ứng dụng di động (Mobile App), Zalo Mini App, hệ thống quản trị trung tâm, thuật toán điều phối tự động kết nối giữa Khách hàng, Tài xế và Nhà bán hàng tại địa phương.</p>
-            <p><strong>1.2. Đối tác:</strong> Bao gồm các cá nhân cung cấp dịch vụ vận chuyển (Tài xế), các hộ kinh doanh, nhà hàng, đơn vị cung ứng nhu yếu phẩm (Nhà bán hàng) đăng ký hợp tác kinh doanh trên nền tảng.</p>
-            <p><strong>1.3. Khách hàng:</strong> Cá nhân hoặc tổ chức sử dụng nền tảng SONLA GO để đặt dịch vụ di chuyển, vận chuyển hàng hóa, đặt đồ ăn hoặc mua sắm nhu yếu phẩm.</p>
-
-            <h2>2. Cam kết của các bên</h2>
-            <p><strong>2.1. Cam kết của Đối tác/Người dùng:</strong> Bạn cam kết rằng tất cả các thông tin cung cấp khi đăng ký tài khoản là chính xác, hợp pháp và được cập nhật liên tục. Bạn cam kết không sử dụng ứng dụng vào các mục đích vi phạm pháp luật, không sử dụng các công cụ giả lập, phần mềm can thiệp trái phép để gian lận định vị hoặc can thiệp thuật toán giá cước.</p>
-            <p><strong>2.2. Cam kết của SONLA GO:</strong> Công ty cam kết duy trì tính ổn định của nền tảng, đảm bảo hệ thống tính toán giá cước tự động bằng thuật toán chính xác, minh bạch, không thiên vị và không thực hiện các hành vi thao túng thị trường.</p>
-
-            <h2>3. Phương thức Thanh toán</h2>
-            <p>Nền tảng hỗ trợ đa dạng các phương thức thanh toán bao gồm: Tiền mặt, chuyển khoản qua mã QR, liên kết ví điện tử và các cổng thanh toán được tích hợp hợp pháp trên ứng dụng và Zalo Mini App. Đối tác và Khách hàng có nghĩa vụ tuân thủ quy trình đối soát tự động trên hệ thống. SONLA GO có quyền tạm giữ các khoản thanh toán nếu phát hiện dấu hiệu giao dịch gian lận hoặc vi phạm chính sách cho đến khi quá trình xác minh hoàn tất.</p>
-
-            <h2>4. Nghĩa vụ Thuế</h2>
-            <p>Mỗi bên có trách nhiệm tự thực hiện và hoàn thành các nghĩa vụ thuế của mình đối với cơ quan nhà nước theo quy định của pháp luật Việt Nam hiện hành. SONLA GO sẽ thực hiện khấu trừ tại nguồn Thuế Thu nhập cá nhân (TNCN), Thuế Giá trị gia tăng (GTGT) đối với các khoản thu nhập của Đối tác tài xế theo đúng tỷ lệ luật định trước khi thực hiện phân phối thu nhập qua ví điện tử của hệ thống.</p>
-
-            <h2>5. Li-xăng và Quyền sử dụng phần mềm</h2>
-            <p>SONLA GO cấp cho Bạn một giấy phép (Li-xăng) giới hạn, phi độc quyền, không thể chuyển nhượng, không thể cấp phép lại và có thể thu hồi bất cứ lúc nào để truy cập và sử dụng giao diện phần mềm phục vụ cho mục đích kết nối tiêu dùng hoặc vận hành dịch vụ được chỉ định. Bạn nghiêm cấm thực hiện việc sao chép, sửa đổi, phân phối, bán, cho thuê hoặc dịch ngược mã nguồn (reverse engineer) bất kỳ phần nào của phần mềm thuộc hệ sinh thái SONLA GO.</p>
-
-            <h2>6. Quyền Sở hữu trí tuệ</h2>
-            <p>Toàn bộ quyền sở hữu trí tuệ bao gồm nhãn hiệu độc quyền "SONLA GO", logo thương hiệu, mã nguồn ứng dụng, giao diện đồ họa, cơ sở dữ liệu, thuật toán định giá và phân bổ cuốc xe đều thuộc quyền sở hữu duy nhất và tuyệt đối của Công ty Cổ phần Công nghệ & Dịch vụ SONLA GO. Không có bất kỳ điều khoản nào trong thỏa thuận này cấu thành việc chuyển giao quyền sở hữu trí tuệ cho bên thứ ba.</p>
-
-            <h2>7. Chính sách Bảo mật thông tin</h2>
-            <p>Chúng tôi cam kết bảo mật tuyệt đối dữ liệu cá nhân của Người dùng và Đối tác theo quy định của Luật An ninh mạng và các nghị định về bảo vệ dữ liệu cá nhân. SONLA GO không bán, chia sẻ hoặc tiết lộ thông tin dữ liệu cho bên thứ ba ngoại trừ các trường hợp phục vụ trực tiếp cho việc vận hành cuốc xe (chia sẻ vị trí giữa Tài xế và Khách hàng) hoặc khi có yêu cầu bằng văn bản từ cơ quan quản lý nhà nước có thẩm quyền.</p>
-
-            <h2>8. Phí dịch vụ và Biểu phí áp dụng</h2>
-            <p>Phí sử dụng nền tảng (chiết khấu) và biểu phí dịch vụ gọi xe, giao hàng, đặt đồ ăn sẽ được hiển thị công khai trên ứng dụng trước khi giao dịch được xác lập. SONLA GO bảo lưu quyền thay đổi cấu trúc biểu phí, phí hủy chuyến hoặc các loại phụ phí tùy theo tình hình thực tế và thị trường local. Sự thay đổi sẽ được thông báo đến các bên tối thiểu 07 ngày trước khi chính thức áp dụng.</p>
-
-            <h2>9. Miễn trừ trách nhiệm</h2>
-            <p>SONLA GO hoạt động với tư cách là đơn vị cung cấp giải pháp kết nối công nghệ, do đó chúng tôi không chịu trách nhiệm đối với các thiệt hại gián tiếp, vô ý hoặc mang tính hệ quả phát sinh từ hành vi vi phạm cá nhân của Khách hàng hoặc Đối tác trong quá trình thực hiện giao dịch ngoài thực tế (bao gồm tai nạn giao thông, thái độ ứng xử hoặc mất mát tài sản không thuộc phạm vi bảo hiểm hàng hóa ký gửi).</p>
-
-            <h2>10. Sự cố hệ thống và Lỗi Internet</h2>
-            <p>Bạn thừa nhận rằng dịch vụ công nghệ có thể bị gián đoạn do lỗi đường truyền internet quốc tế, nghẽn mạng viễn thông local, sự cố máy chủ do thiên tai hoặc các cuộc tấn công mạng DDoS từ bên ngoài. Trong trường hợp xảy ra lỗi kỹ thuật ngoài tầm kiểm soát, SONLA GO sẽ nỗ lực khắc phục trong thời gian sớm nhất nhưng được miễn trừ hoàn toàn trách nhiệm bồi thường đối với bất kỳ tổn thất doanh thu nào của Đối tác trong thời gian gián đoạn.</p>
-
-            <h2>11. Giới hạn trách nhiệm bồi thường</h2>
-            <p>Trong mọi trường hợp phát sinh tranh chấp pháp lý được xác định do lỗi trực tiếp từ hệ thống của Công ty, tổng trách nhiệm bồi thường thiệt hại tối đa của SONLA GO đối với một cá nhân hoặc một sự vụ sẽ không vượt quá số tiền phí dịch vụ thực tế mà SONLA GO đã thu từ tài khoản của cá nhân đó trong giao dịch cụ thể phát sinh tranh chấp.</p>
-
-            <h2>12. Thông báo và Phương thức liên lạc</h2>
-            <p>Mọi thông báo chính thức, cập nhật chính sách, quy chế và các vấn đề phát sinh sẽ được Công ty gửi trực tiếp thông qua tính năng thông báo nội bộ trên Ứng dụng di động, tin nhắn hệ thống Zalo OA hoặc thông qua thư điện tử (Email) được đăng ký hợp lệ trên hệ thống. Thông báo được coi là đã nhận thành công bởi người dùng trong vòng 24 giờ kể từ thời điểm hệ thống phát đi.</p>
-
-            <h2>13. Chuyển giao nghĩa vụ hợp đồng</h2>
-            <p>SONLA GO có quyền chuyển nhượng toàn bộ hoặc một phần quyền và nghĩa vụ theo thỏa thuận này cho các công ty liên kết, công ty con hoặc thực thể kế thừa quyền lợi hợp pháp trong các thương vụ sáp nhập mà không cần sự đồng ý trước của bên sử dụng. Ngược lại, Khách hàng và Đối tác không có quyền chuyển nhượng tài khoản, quyền lợi hoặc nghĩa vụ hợp tác của mình cho bất kỳ bên thứ ba nào nếu không được sự chấp thuận bằng văn bản của SONLA GO.</p>
-
-            <h2>14. Hiệu lực và Chấm dứt thỏa thuận</h2>
-            <p>Thỏa thuận này có hiệu lực vô thời hạn kể từ thời điểm Bạn thực hiện thao tác nhấp chọn "Đồng ý" hoặc bắt đầu sử dụng dịch vụ đầu tiên trên hệ thống. SONLA GO có quyền đình chỉ quyền truy cập hệ thống hoặc khóa tài khoản vĩnh viễn ngay lập tức mà không cần báo trước nếu phát hiện bất kỳ hành vi vi phạm nghiêm trọng nào đối với các điều khoản cam kết hoặc quy chế an toàn cộng đồng.</p>
-
-            <h2>15. Điều khoản hợp tác chiến lược giữa Be và SONLA GO</h2>
-            <p>Bản thỏa thuận này được xây dựng trên cơ sở tham chiếu, kế thừa và áp dụng các tiêu chuẩn quản trị vận tải số tiên tiến theo mô hình điều khoản của <strong>Be Group (Be)</strong>, nhằm đảm bảo tính đồng bộ, chuẩn mực pháp lý quốc gia và sẵn sàng cho các chương trình hợp tác liên kết mạng lưới, tích hợp hạ tầng công nghệ và chia sẻ giải pháp vận hành liên vùng giữa hệ sinh thái <strong>SONLA GO</strong> và <strong>Be</strong> trong tương lai. Thỏa thuận này được điều chỉnh và giải thích theo luật pháp nước Cộng hòa Xã hội Chủ nghĩa Việt Nam. Mọi tranh chấp nếu không thể giải quyết bằng thương lượng sẽ được đưa ra phân xử tại Tòa án nhân dân có thẩm quyền tại Tỉnh Sơn La.</p>
-
+            <h2>4. Hợp tác chiến lược</h2>
+            <p>Bản thỏa thuận này được xây dựng trên cơ sở tham chiếu, kế thừa và áp dụng các tiêu chuẩn quản trị vận tải số tiên tiến theo mô hình điều khoản của Be Group (Be)[cite: 1].</p>
         </article>
     </section>
 
-    <!-- Footer Structure -->
+    <!-- Footer -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col company-info">
-                <div style="display: flex; font-size: 1.8rem; font-weight: 900; margin-bottom: 5px;">
-                    <span style="color: var(--text-dark);">Sonla</span><span style="color: var(--brand-yellow);">Go</span>
-                </div>
+                <a href="index.html"><img src="logo.png" alt="Sonla Go" style="height: 45px; width: auto;"></a>
                 <p>CÔNG TY CỔ PHẦN CÔNG NGHỆ & DỊCH VỤ SONLA GO</p>
-                <h5 style="margin-bottom: 10px;">Kết nối với chúng tôi</h5>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-                <div class="app-badges">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
-                </div>
+                <div class="social-icons"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
             </div>
-
-            <div class="footer-col">
-                <h5>Hỗ trợ</h5>
-                <ul>
-                    <li><a href="#">Hotline hỗ trợ KH: 0328346999</a></li>
-                    <li><a href="#">Email hỗ trợ KH: cskh@sonlago.vn</a></li>
-                    <li><a href="#">Email hỗ trợ đối tác: doitac@sonlago.vn</a></li>
-                    <li><a href="#">Câu hỏi thường gặp</a></li>
-                    <li><a href="#">Nguyên tắc cộng đồng</a></li>
-                    <li><a href="#">Quy chế hoạt động</a></li>
-                    <li><a href="#">Điều khoản sử dụng</a></li>
-                    <li><a href="#">Chính sách bảo mật</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h5>Công ty</h5>
-                <ul>
-                    <li><a href="#">Về chúng tôi</a></li>
-                    <li><a href="#">Tin tức</a></li>
-                    <li><a href="#">Tuyển dụng</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h5>KH cá nhân</h5>
-                <ul>
-                    <li><a href="#">Thông tin mới nhất</a></li>
-                    <li><a href="#">Dịch vụ Gọi xe</a></li>
-                    <li><a href="#">Dịch vụ Giao hàng</a></li>
-                    <li><a href="#">Đi chợ hộ</a></li>
-                    <li><a href="#">Sonla Loyalty</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h5>KH doanh nghiệp</h5>
-                <ul>
-                    <li><a href="#">SonlaForBusiness</a></li>
-                    <li><a href="#">Hợp tác đối tác</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h5>Tài xế</h5>
-                <ul>
-                    <li><a href="#">Hướng dẫn đăng ký Taxi</a></li>
-                    <li><a href="#">Hướng dẫn đăng ký Giao hàng</a></li>
-                    <li><a href="#">Chương trình thưởng</a></li>
-                    <li><a href="#">Đào tạo</a></li>
-                    <li><a href="#">Cộng đồng tài xế</a></li>
-                    <li><a href="#">Quy định An toàn - Chất lượng</a></li>
-                    <li><a href="#">Bộ quy tắc ứng xử</a></li>
-                </ul>
-            </div>
+            <div class="footer-col"><h5>Hỗ trợ</h5><ul><li><a href="tel:0328346999">Hotline: 0328346999</a></li><li><a href="mailto:cskh@sonlago.vn">Email: cskh@sonlago.vn</a></li><li><a href="dieu-khoan.html">Điều khoản sử dụng</a></li></ul></div>
+            <div class="footer-col"><h5>Công ty</h5><ul><li><a href="cong-ty.html">Về chúng tôi</a></li><li><a href="cong-ty.html">Tin tức</a></li></ul></div>
+            <div class="footer-col"><h5>KH cá nhân</h5><ul><li><a href="index.html">Dịch vụ Gọi xe</a></li><li><a href="index.html">Giao hàng</a></li></ul></div>
+            <div class="footer-col"><h5>Doanh nghiệp</h5><ul><li><a href="doanh-nghiep.html">SonlaForBusiness</a></li><li><a href="nha-hang.html">Hợp tác nhà hàng</a></li></ul></div>
+            <div class="footer-col"><h5>Tài xế</h5><ul><li><a href="tai-xe.html">Đăng ký Tài xế</a></li><li><a href="tai-xe.html">Cộng đồng</a></li></ul></div>
         </div>
+        <div class="footer-bottom">© 2026 CÔNG TY CỔ PHẦN CÔNG NGHỆ & DỊCH VỤ SONLA GO. Mọi bản quyền được bảo lưu.</div>
     </footer>
-
 </body>
 </html>
