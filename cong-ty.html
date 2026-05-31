@@ -11,8 +11,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
         body { color: var(--text-dark); background-color: #ffffff; line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
-
-        /* HEADER */
         header { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; height: 80px; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; background: #fff; z-index: 100;}
         .logo-container img { height: 40px; width: auto; display: block; }
         .nav-links { display: flex; gap: 30px; font-weight: 600; font-size: 0.95rem; }
@@ -20,45 +18,48 @@
         .nav-links a:hover, .nav-links a.active { color: var(--brand-yellow); border-bottom: 3px solid var(--brand-yellow); }
         .header-actions { display: flex; align-items: center; gap: 20px; }
         .btn-download { background: var(--brand-yellow); color: var(--text-dark); font-weight: 700; padding: 12px 24px; border-radius: 4px; font-size: 0.9rem; transition: 0.2s; }
-        .lang-switch { font-weight: 700; font-size: 0.9rem; color: var(--text-gray); }
-        .lang-switch span.active { color: var(--text-dark); }
+        .lang-switch { font-weight: 700; font-size: 0.9rem; color: var(--text-gray); } .lang-switch span.active { color: var(--text-dark); }
         .yellow-stripe { height: 40px; background-color: var(--brand-yellow); width: 100%; }
 
-        /* CONTENT */
-        .company-hero { background: linear-gradient(135deg, var(--brand-green-dark), var(--brand-green)); color: white; padding: 120px 20px; text-align: center; }
-        .company-hero h1 { font-size: 3.5rem; font-weight: 900; color: var(--brand-yellow); margin-bottom: 20px; text-transform: uppercase;}
-        .company-hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto; font-weight: 500; }
-        .about-intro { max-width: 1000px; margin: 80px auto; padding: 0 20px; text-align: center; }
-        .about-intro h2 { font-size: 2.2rem; color: var(--brand-green); font-weight: 900; margin-bottom: 30px; }
-        .about-intro p { font-size: 1.15rem; color: var(--text-gray); margin-bottom: 20px; text-align: justify; }
-        
-        .stats-section { background-color: var(--brand-yellow); padding: 60px 20px; }
-        .stats-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; }
-        .stat-item h3 { font-size: 3.5rem; font-weight: 900; color: var(--brand-green); margin-bottom: 10px; }
-        .stat-item p { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); text-transform: uppercase; }
+        .company-hero { background: linear-gradient(135deg, var(--brand-green-dark) 0%, var(--brand-green) 100%); color: white; padding: 120px 20px; text-align: center; position: relative; overflow: hidden; }
+        .company-hero::before { content: ''; position: absolute; left: -100px; top: -100px; width: 400px; height: 400px; background: rgba(255, 193, 7, 0.1); border-radius: 50%; }
+        .company-hero h1 { font-size: 3.5rem; font-weight: 900; color: var(--brand-yellow); margin-bottom: 20px; text-transform: uppercase; position: relative; z-index: 2;}
+        .company-hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto; font-weight: 500; position: relative; z-index: 2;}
 
-        /* FOOTER */
-        footer { padding: 60px 40px 20px; border-top: 1px solid var(--border-color); background: #fff;}
-        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; gap: 30px; }
-        .footer-col h5 { font-size: 1rem; font-weight: 700; margin-bottom: 20px; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul a { font-size: 0.85rem; color: var(--text-dark); font-weight: 500; transition: 0.2s;}
-        .footer-col ul a:hover { color: var(--brand-green); }
-        .company-info p { font-size: 0.85rem; font-weight: 700; margin: 15px 0; text-transform: uppercase; }
-        .social-icons a { font-size: 1.5rem; color: var(--text-dark); margin-right: 15px; }
-        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); color: var(--text-gray); font-size: 0.9rem; }
+        .section-padding { padding: 100px 20px; }
+        .about-intro { max-width: 1000px; margin: 0 auto; text-align: center; }
+        .about-intro h2 { font-size: 2.5rem; color: var(--brand-green); font-weight: 900; margin-bottom: 40px; text-transform: uppercase;}
+        .about-intro p { font-size: 1.15rem; color: var(--text-gray); margin-bottom: 25px; text-align: justify; line-height: 1.8;}
+        .highlight { font-size: 1.5rem; font-weight: 800; color: var(--brand-green); margin: 50px 0; border-left: 6px solid var(--brand-yellow); padding: 20px 30px; text-align: left; background: var(--bg-gray); border-radius: 0 16px 16px 0;}
 
-        @media screen and (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr 1fr; } }
-        @media screen and (max-width: 768px) { .nav-links, .lang-switch { display: none; } .footer-grid { grid-template-columns: 1fr 1fr; } .company-hero h1 { font-size: 2.5rem; } }
+        .stats-section { background-color: var(--brand-yellow); padding: 80px 20px; }
+        .stats-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
+        .stat-item h3 { font-size: 4rem; font-weight: 900; color: var(--brand-green); line-height: 1; margin-bottom: 15px; }
+        .stat-item p { font-size: 1.2rem; font-weight: 800; color: var(--text-dark); text-transform: uppercase; }
+
+        .values-section { max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 2.5rem; font-weight: 900; color: var(--brand-green); margin-bottom: 60px; text-align: center; }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .value-card { background: var(--bg-gray); padding: 50px 40px; border-radius: 24px; transition: 0.3s; border-bottom: 6px solid transparent; }
+        .value-card:hover { transform: translateY(-10px); border-bottom-color: var(--brand-yellow); background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .value-card i { font-size: 3.5rem; color: var(--brand-green); margin-bottom: 25px; display: block;}
+        .value-card h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 20px; color: var(--text-dark); }
+        .value-card p { font-size: 1.05rem; color: var(--text-gray); }
+
+        footer { padding: 80px 40px 30px; border-top: 1px solid var(--border-color); background: #fff;}
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2.5fr 1fr 1fr 1fr 1.5fr; gap: 40px; }
+        .footer-col h5 { font-size: 1.1rem; font-weight: 800; margin-bottom: 25px; color: var(--brand-green);}
+        .footer-col ul { list-style: none; } .footer-col ul li { margin-bottom: 15px; } .footer-col ul a { font-size: 0.95rem; color: var(--text-gray); font-weight: 500; transition: 0.2s;} .footer-col ul a:hover { color: var(--brand-yellow-dark); }
+        .social-icons a { font-size: 1.8rem; color: var(--brand-green); margin-right: 20px; }
+        .footer-bottom { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-color); color: #888; font-size: 0.95rem; }
+
+        @media screen and (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media screen and (max-width: 768px) { .nav-links {display: none;} .stat-item { margin-bottom: 30px; } .company-hero h1 {font-size: 2.8rem;} }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <div class="logo-container">
-            <a href="index.html"><img src="logo.png" alt="Sonla Go"></a>
-        </div>
+        <div class="logo-container"><a href="index.html"><img src="logo.png" alt="Sonla Go"></a></div>
         <nav class="nav-links">
             <a href="cong-ty.html" class="active">Công ty</a>
             <a href="index.html">Khách hàng cá nhân</a>
@@ -75,40 +76,67 @@
     <div class="yellow-stripe"></div>
 
     <section class="company-hero">
-        <h1>Tự hào nền tảng công nghệ Tây Bắc</h1>
+        <h1>Tự hào công nghệ Tây Bắc</h1>
         <p>Sonla Go là hệ sinh thái tiêu dùng đa dịch vụ mở, mang sứ mệnh chuyển đổi số và nâng tầm chất lượng cuộc sống cho hàng triệu người dân địa phương.</p>
     </section>
 
-    <section class="about-intro">
-        <h2>Câu chuyện của chúng tôi</h2>
-        <p>Khởi nguồn từ khát vọng mang công nghệ giải quyết các nhu cầu thiết yếu hàng ngày, Sonla Go được xây dựng với định vị là một "Siêu ứng dụng" thuần Việt, am hiểu sâu sắc văn hóa và thói quen sinh hoạt của người dân tỉnh Sơn La nói riêng và khu vực Tây Bắc nói chung.</p>
-        <p>Chúng tôi không chỉ là một ứng dụng gọi xe hay giao hàng. Sonla Go là một hệ sinh thái mở, nơi kết nối hàng chục ngàn Đối tác tài xế, Nhà hàng, Hộ kinh doanh với Khách hàng thông qua các thuật toán thông minh, minh bạch và tối ưu chi phí nhất.</p>
+    <section class="section-padding">
+        <div class="about-intro">
+            <h2>Câu Chuyện Thương Hiệu</h2>
+            <p>Khởi nguồn từ khát vọng mang công nghệ giải quyết các nhu cầu thiết yếu hàng ngày, Sonla Go được xây dựng với định vị là một "Siêu ứng dụng" thuần Việt, am hiểu sâu sắc văn hóa và thói quen sinh hoạt của người dân tỉnh Sơn La nói riêng và khu vực Tây Bắc nói chung.</p>
+            <p>Chúng tôi không chỉ là một ứng dụng gọi xe hay giao hàng. Sonla Go là một nền kinh tế số thu nhỏ, nơi kết nối hàng chục ngàn Đối tác tài xế, Nhà hàng, Hộ kinh doanh với Khách hàng thông qua các thuật toán thông minh, minh bạch và tối ưu chi phí nhất. Việc tiên phong đưa toàn bộ dịch vụ lên nền tảng <strong>Zalo Mini App</strong> chính là minh chứng cho nỗ lực mang công nghệ đến gần hơn với mọi tầng lớp người dân, xóa bỏ hoàn toàn rào cản về cài đặt ứng dụng phức tạp.</p>
+            
+            <div class="highlight">
+                "Sứ mệnh cao cả nhất của Sonla Go là song hành cùng sự thịnh vượng của các Đối tác, đồng thời thúc đẩy nền kinh tế số của tỉnh Sơn La phát triển mạnh mẽ và bền vững."
+            </div>
+        </div>
     </section>
 
     <section class="stats-section">
         <div class="stats-grid">
-            <div class="stat-item"><h3>4+</h3><p>Dịch vụ thiết yếu</p></div>
-            <div class="stat-item"><h3>10K+</h3><p>Người dùng nền tảng</p></div>
-            <div class="stat-item"><h3>500+</h3><p>Tài xế đối tác</p></div>
-            <div class="stat-item"><h3>300+</h3><p>Cửa hàng liên kết</p></div>
+            <div class="stat-item"><h3>4+</h3><p>Dịch Vụ Cốt Lõi</p></div>
+            <div class="stat-item"><h3>100%</h3><p>Định Vị Sơn La</p></div>
+            <div class="stat-item"><h3>24/7</h3><p>Hỗ Trợ Đối Tác</p></div>
+            <div class="stat-item"><h3>Zalo</h3><p>Tích Hợp Toàn Diện</p></div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section class="section-padding">
+        <div class="values-section">
+            <h2 class="section-title">Giá Trị Cốt Lõi</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Lấy Khách Hàng Làm Trọng Tâm</h3>
+                    <p>Mọi quyết định cải tiến công nghệ, nâng cấp Zalo Mini App và quy trình vận hành đều xuất phát từ trải nghiệm thực tế của người dùng Sơn La, nhằm mang lại dịch vụ thân thiện và đáng tin cậy nhất.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Minh Bạch & Công Bằng</h3>
+                    <p>Hệ thống máy chủ áp dụng thuật toán hiện đại để tự động hóa hoàn toàn việc tính toán giá cước. Đảm bảo chiết khấu thấp cho Đối tác và mức phí niêm yết rõ ràng, không "hét giá" cho Khách hàng.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Tiên Phong Chuyển Đổi Xanh</h3>
+                    <p>Khuyến khích và ưu đãi mạnh mẽ cho mạng lưới xe điện (VinFast VF3, VF5). Cam kết phát triển hệ sinh thái giao thông không khí thải, bảo vệ môi trường trong lành của vùng núi Tây Bắc.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-grid">
-            <div class="footer-col company-info">
-                <a href="index.html"><img src="logo.png" alt="Sonla Go" style="height: 45px; width: auto;"></a>
-                <p>CÔNG TY CỔ PHẦN CÔNG NGHỆ & DỊCH VỤ SONLA GO</p>
-                <div class="social-icons"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
+            <div class="footer-col" style="grid-column: span 1;">
+                <a href="index.html"><img src="logo.png" alt="Sonla Go" style="height: 50px; margin-bottom: 20px;"></a>
+                <p style="font-size: 0.95rem; color: #555; margin-bottom: 25px;">Siêu ứng dụng đa dịch vụ số 1 tại Sơn La. Kết nối giao thương thông minh, minh bạch và an toàn.</p>
+                <div class="social-icons"><a href="#"><i class="fab fa-facebook-square"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
             </div>
-            <div class="footer-col"><h5>Hỗ trợ</h5><ul><li><a href="tel:0328346999">Hotline: 0328346999</a></li><li><a href="mailto:cskh@sonlago.vn">Email: cskh@sonlago.vn</a></li><li><a href="dieu-khoan.html">Điều khoản sử dụng</a></li></ul></div>
-            <div class="footer-col"><h5>Công ty</h5><ul><li><a href="cong-ty.html">Về chúng tôi</a></li><li><a href="cong-ty.html">Tin tức</a></li></ul></div>
-            <div class="footer-col"><h5>KH cá nhân</h5><ul><li><a href="index.html">Dịch vụ Gọi xe</a></li><li><a href="index.html">Giao hàng</a></li></ul></div>
-            <div class="footer-col"><h5>Doanh nghiệp</h5><ul><li><a href="doanh-nghiep.html">SonlaForBusiness</a></li><li><a href="nha-hang.html">Hợp tác nhà hàng</a></li></ul></div>
-            <div class="footer-col"><h5>Tài xế</h5><ul><li><a href="tai-xe.html">Đăng ký Tài xế</a></li><li><a href="tai-xe.html">Cộng đồng</a></li></ul></div>
+            <div class="footer-col"><h5>Hỗ trợ</h5><ul><li><a href="#">Hotline: 0328346999</a></li><li><a href="#">Email: cskh@sonlago.vn</a></li><li><a href="dieu-khoan.html">Điều khoản sử dụng</a></li></ul></div>
+            <div class="footer-col"><h5>Công ty</h5><ul><li><a href="cong-ty.html">Về chúng tôi</a></li><li><a href="#">Tuyển dụng</a></li></ul></div>
+            <div class="footer-col"><h5>Dịch vụ</h5><ul><li><a href="index.html">SonlaBike</a></li><li><a href="index.html">SonlaCar (Taxi EV)</a></li><li><a href="index.html">SonlaFood</a></li></ul></div>
+            <div class="footer-col"><h5>Đối tác</h5><ul><li><a href="doanh-nghiep.html">SonlaForBusiness</a></li><li><a href="tai-xe.html">Đăng ký Tài xế</a></li><li><a href="nha-hang.html">Hợp tác nhà hàng</a></li></ul></div>
         </div>
-        <div class="footer-bottom">© 2026 CÔNG TY CỔ PHẦN CÔNG NGHỆ & DỊCH VỤ SONLA GO. Mọi bản quyền được bảo lưu.</div>
+        <div class="footer-bottom">© 2026 CÔNG TY CỔ PHẦN CÔNG NGHỆ & DỊCH VỤ SONLA GO. Mã số doanh nghiệp: 5500684396.</div>
     </footer>
 </body>
 </html>
