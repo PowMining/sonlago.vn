@@ -9,7 +9,7 @@
     <style>
         :root { --brand-yellow: #FFC107; --brand-yellow-dark: #FFB300; --brand-green: #2E7D32; --text-dark: #111111; --text-gray: #555555; --bg-gray: #f8f9fa; --border-color: #eeeeee; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { color: var(--text-dark); line-height: 1.6; background-color: #ffffff; }
+        body { color: var(--text-dark); line-height: 1.6; background-color: #ffffff; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; }
         header { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; height: 80px; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; background: #fff; z-index: 100;}
         .logo-container img { height: 40px; width: auto; display: block; }
@@ -17,7 +17,8 @@
         .nav-links a { padding: 28px 0; border-bottom: 3px solid transparent; transition: 0.2s; }
         .nav-links a:hover, .nav-links a.active { color: var(--brand-yellow-dark); border-bottom: 3px solid var(--brand-yellow); }
         .header-actions { display: flex; align-items: center; gap: 20px; }
-        .btn-download { background: var(--brand-yellow); color: var(--text-dark); font-weight: 700; padding: 12px 24px; border-radius: 4px; font-size: 0.9rem; }
+        .btn-download { background: var(--brand-yellow); color: var(--text-dark); font-weight: 700; padding: 12px 24px; border-radius: 4px; font-size: 0.9rem; transition: 0.2s;}
+        .btn-download:hover { background: var(--brand-yellow-dark); }
         .yellow-stripe { height: 40px; background-color: var(--brand-yellow); width: 100%; }
         
         .driver-hero { background: var(--brand-green); padding: 120px 20px; text-align: center; color: white;}
@@ -36,14 +37,17 @@
         .benefit-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 15px; color: var(--text-dark);}
         .benefit-card p { font-size: 1.05rem; color: var(--text-gray); }
 
-        .ev-program { max-width: 1200px; margin: 0 auto; background: var(--bg-gray); padding: 60px; border-radius: 24px; display: flex; align-items: center; gap: 50px; border-left: 8px solid var(--brand-yellow);}
-        .ev-text { flex: 1; }
-        .ev-text h3 { font-size: 2.2rem; font-weight: 900; color: var(--brand-green); margin-bottom: 20px; }
-        .ev-text p { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 20px; }
-        .ev-text ul { list-style: none; }
-        .ev-text li { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .ev-text li i { color: var(--brand-yellow); }
-        .ev-img { flex: 1; text-align: center; } .ev-img i { font-size: 10rem; color: #1b5e20; }
+        .ev-section { background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e9 100%); }
+        .ev-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .ev-card { background: #fff; padding: 50px 40px; border-radius: 24px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); text-align: center; position: relative; overflow: hidden;}
+        .ev-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 8px; }
+        .ev-card:nth-child(1)::before { background: var(--brand-green); }
+        .ev-card:nth-child(2)::before { background: var(--brand-yellow); }
+        .ev-card i { font-size: 4rem; margin-bottom: 25px; }
+        .ev-card:nth-child(1) i { color: var(--brand-green); }
+        .ev-card:nth-child(2) i { color: var(--brand-yellow); }
+        .ev-card h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 20px; color: var(--text-dark); }
+        .ev-card p { color: var(--text-gray); font-size: 1.1rem; line-height: 1.7; }
 
         .faq-section { max-width: 900px; margin: 0 auto; }
         .faq-item { border-bottom: 1px solid var(--border-color); padding: 25px 0; }
@@ -57,7 +61,7 @@
         .social-icons a { font-size: 1.8rem; color: var(--brand-green); margin-right: 20px; }
         .footer-bottom { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-color); color: #888; font-size: 0.95rem; }
 
-        @media screen and (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } .ev-program {flex-direction: column; text-align: center;} }
+        @media screen and (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } .ev-grid {grid-template-columns: 1fr;} }
         @media screen and (max-width: 768px) { .nav-links { display: none; } .driver-hero h1 { font-size: 2.5rem;} }
     </style>
 </head>
@@ -73,7 +77,7 @@
             <a href="dieu-khoan.html">Hỗ trợ</a>
         </nav>
         <div class="header-actions">
-            <a href="#" class="btn-download">ĐĂNG KÝ TRỰC TUYẾN</a>
+            <a href="https://zalo.me/3007391773317245488" target="_blank" class="btn-download">ĐĂNG KÝ TRỰC TUYẾN</a>
         </div>
     </header>
     <div class="yellow-stripe"></div>
@@ -81,7 +85,7 @@
     <section class="driver-hero">
         <h1>Bật App Liền Tay<br>Thu Nhập Mê Say</h1>
         <p>Gia nhập mạng lưới giao hàng, đi chợ hộ (xe máy) hoặc đối tác chạy Taxi (ô tô) cùng Sonla Go. Tự do thời gian, gia tăng thu nhập với chính sách chiết khấu minh bạch và hấp dẫn nhất Sơn La.</p>
-        <a href="#" class="btn-register">TẢI APP DRIVER & ĐĂNG KÝ</a>
+        <a href="https://zalo.me/3007391773317245488" target="_blank" class="btn-register">LIÊN HỆ ĐĂNG KÝ QUA ZALO</a>
     </section>
 
     <section class="section-padding">
@@ -105,55 +109,14 @@
         </div>
     </section>
 
-    <section class="section-padding" style="padding-top: 0;">
-        <div class="ev-program">
-            <div class="ev-text">
-                <h3>Chính Sách Đặc Quyền Tài Xế Tiên Phong</h3>
-                <p>Sonla Go xây dựng các chương trình thưởng đặc biệt nhằm thúc đẩy mạng lưới giao nhận và đáp ứng nhu cầu gọi xe Taxi của người dân Sơn La.</p>
-                <ul>
-                    <li><i class="fas fa-car-battery"></i> <strong>Chủ xe Ô tô điện (VinFast VF3, VF5):</strong> Giảm ngay 50% phí chiết khấu nền tảng trong 6 tháng đầu. Ưu tiên điều phối cuốc xe.</li>
-                    <li><i class="fas fa-clock"></i> <strong>Thưởng Năng Suất 24/7:</strong> Các chương trình nhân giá (surge pricing) vào giờ cao điểm, ban đêm hoặc thời tiết xấu, đảm bảo thu nhập hấp dẫn.</li>
-                </ul>
+    <section class="section-padding ev-section">
+        <h2 class="section-title" style="margin-bottom: 15px;">Chính Sách Đặc Quyền Tiên Phong</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; color: var(--text-gray); font-size: 1.15rem;">Sonla Go xây dựng các chương trình thưởng đặc biệt nhằm thúc đẩy mạng lưới giao nhận và đáp ứng nhu cầu gọi xe Taxi của người dân địa phương.</p>
+        <div class="ev-grid">
+            <div class="ev-card">
+                <i class="fas fa-car-battery"></i>
+                <h3>Chủ Xe Ô tô Điện (EV)</h3>
+                <p>Giảm ngay <strong>50% phí chiết khấu</strong> nền tảng trong 6 tháng đầu dành cho xe VinFast VF3, VF5. Cùng với hệ thống thuật toán ưu tiên điều phối cuốc xe nổ liên tục.</p>
             </div>
-            <div class="ev-img">
-                <i class="fas fa-charging-station"></i>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding">
-        <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
-        <div class="faq-section">
-            <div class="faq-item">
-                <h4><i class="fas fa-question-circle"></i> Sonla Go tuyển dụng những loại hình xe nào?</h4>
-                <p>Chúng tôi hiện đang mở đăng ký cho 2 nhóm đối tác:<br>
-                   - <strong>Xe máy:</strong> Chỉ phục vụ giao hàng (SonlaDelivery) và đi chợ hộ, giao đồ ăn (SonlaFood). Tuyệt đối không chở khách (không có dịch vụ xe ôm).<br>
-                   - <strong>Ô tô (4 chỗ, 7 chỗ):</strong> Phục vụ dịch vụ gọi xe Taxi (SonlaCar).</p>
-            </div>
-            <div class="faq-item">
-                <h4><i class="fas fa-question-circle"></i> Hồ sơ đăng ký cần những giấy tờ gì?</h4>
-                <p>Hồ sơ bản gốc để chụp ảnh bao gồm: Căn cước công dân (CCCD) gắn chip, Giấy phép lái xe (hạng A1/A2 đối với đối tác giao hàng/đồ ăn, hoặc B2 trở lên đối với ô tô), Giấy đăng ký xe (Cà vẹt) và Bảo hiểm TNDS bắt buộc còn hạn.</p>
-            </div>
-            <div class="faq-item">
-                <h4><i class="fas fa-question-circle"></i> Bao lâu thì hồ sơ của tôi được duyệt?</h4>
-                <p>Nếu bạn điền đầy đủ thông tin và tải ảnh giấy tờ rõ nét, hệ thống sẽ duyệt hồ sơ trực tuyến trong vòng 24 - 48 giờ làm việc. Bạn sẽ nhận được thông báo qua Zalo OA ngay khi tài khoản được kích hoạt.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col" style="grid-column: span 1;">
-                <a href="index.html"><img src="logo.png" alt="Sonla Go" style="height: 50px; margin-bottom: 20px;"></a>
-                <p style="font-size: 0.95rem; color: #555; margin-bottom: 25px;">Siêu ứng dụng đa dịch vụ số 1 tại Sơn La. Kết nối giao thương thông minh, minh bạch và an toàn.</p>
-                <div class="social-icons"><a href="#"><i class="fab fa-facebook-square"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
-            </div>
-            <div class="footer-col"><h5>Hỗ trợ</h5><ul><li><a href="#">Hotline: 0328346999</a></li><li><a href="#">Email: cskh@sonlago.vn</a></li><li><a href="dieu-khoan.html">Điều khoản sử dụng</a></li></ul></div>
-            <div class="footer-col"><h5>Công ty</h5><ul><li><a href="cong-ty.html">Về chúng tôi</a></li><li><a href="#">Tuyển dụng</a></li></ul></div>
-            <div class="footer-col"><h5>Dịch vụ</h5><ul><li><a href="index.html">SonlaCar (Taxi EV)</a></li><li><a href="index.html">SonlaDelivery</a></li><li><a href="index.html">SonlaFood & Đi chợ</a></li></ul></div>
-            <div class="footer-col"><h5>Đối tác</h5><ul><li><a href="doanh-nghiep.html">SonlaForBusiness</a></li><li><a href="tai-xe.html">Đăng ký Tài xế</a></li><li><a href="nha-hang.html">Hợp tác nhà hàng</a></li></ul></div>
-        </div>
-        <div class="footer-bottom">© 2026 CÔNG TY CỔ PHẦN CÔNG NGHỆ & DỊCH VỤ SONLA GO. Mã số doanh nghiệp: 5500684396.</div>
-    </footer>
-</body>
-</html>
+            <div class="ev-card">
+                <i class
