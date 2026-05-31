@@ -3,56 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonla Go - Tài xế</title>
+    <title>Sonla Go - Đăng ký Đối tác Tài xế</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --brand-yellow: #FFC107; --brand-green: #2E7D32; --text-dark: #111111; --text-gray: #666666; --bg-gray: #f8f9fa; --border-color: #eeeeee; }
+        :root { --brand-yellow: #FFC107; --brand-yellow-dark: #FFB300; --brand-green: #2E7D32; --text-dark: #111111; --text-gray: #555555; --bg-gray: #f8f9fa; --border-color: #eeeeee; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
         body { color: var(--text-dark); line-height: 1.6; background-color: #ffffff; }
         a { text-decoration: none; color: inherit; }
-
-        /* HEADER */
         header { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; height: 80px; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; background: #fff; z-index: 100;}
         .logo-container img { height: 40px; width: auto; display: block; }
         .nav-links { display: flex; gap: 30px; font-weight: 600; font-size: 0.95rem; }
         .nav-links a { padding: 28px 0; border-bottom: 3px solid transparent; transition: 0.2s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--brand-yellow); border-bottom: 3px solid var(--brand-yellow); }
+        .nav-links a:hover, .nav-links a.active { color: var(--brand-yellow-dark); border-bottom: 3px solid var(--brand-yellow); }
         .header-actions { display: flex; align-items: center; gap: 20px; }
         .btn-download { background: var(--brand-yellow); color: var(--text-dark); font-weight: 700; padding: 12px 24px; border-radius: 4px; font-size: 0.9rem; }
-        .lang-switch { font-weight: 700; font-size: 0.9rem; color: var(--text-gray); }
-        .lang-switch span.active { color: var(--text-dark); }
         .yellow-stripe { height: 40px; background-color: var(--brand-yellow); width: 100%; }
+        
+        .driver-hero { background: var(--brand-green); padding: 120px 20px; text-align: center; color: white;}
+        .driver-hero h1 { font-size: 3.5rem; font-weight: 900; color: var(--brand-yellow); margin-bottom: 20px; text-transform: uppercase; }
+        .driver-hero p { font-size: 1.25rem; font-weight: 500; max-width: 800px; margin: 0 auto 40px; line-height: 1.8;}
+        .btn-register { background: white; color: var(--brand-green); font-size: 1.2rem; font-weight: 900; padding: 18px 50px; border-radius: 30px; display: inline-block; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.2);}
+        .btn-register:hover { background: var(--brand-yellow); color: var(--text-dark); transform: translateY(-5px); }
+        
+        .section-padding { padding: 100px 20px; }
+        .section-title { text-align: center; font-size: 2.5rem; font-weight: 900; color: var(--brand-green); margin-bottom: 60px; }
+        
+        .benefit-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .benefit-card { padding: 50px 40px; background: white; border: 1px solid var(--border-color); border-radius: 24px; text-align: center; transition: 0.3s; }
+        .benefit-card:hover { border-color: var(--brand-yellow); box-shadow: 0 15px 30px rgba(0,0,0,0.06); transform: translateY(-10px);}
+        .benefit-card i { font-size: 3.5rem; color: var(--brand-yellow); margin-bottom: 25px; }
+        .benefit-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 15px; color: var(--text-dark);}
+        .benefit-card p { font-size: 1.05rem; color: var(--text-gray); }
 
-        /* DRIVER HERO */
-        .driver-hero { background: var(--brand-yellow); padding: 80px 20px; text-align: center; }
-        .driver-hero h1 { font-size: 3rem; font-weight: 900; color: var(--brand-green); margin-bottom: 20px; text-transform: uppercase; }
-        .driver-hero p { font-size: 1.2rem; font-weight: 600; max-width: 700px; margin: 0 auto 30px; }
-        .btn-register { background: var(--brand-green); color: white; font-size: 1.2rem; font-weight: 800; padding: 15px 40px; border-radius: 30px; display: inline-block; transition: 0.3s; }
-        .btn-register:hover { opacity: 0.9; transform: translateY(-3px); }
+        .ev-program { max-width: 1200px; margin: 0 auto; background: var(--bg-gray); padding: 60px; border-radius: 24px; display: flex; align-items: center; gap: 50px; border-left: 8px solid var(--brand-yellow);}
+        .ev-text { flex: 1; }
+        .ev-text h3 { font-size: 2.2rem; font-weight: 900; color: var(--brand-green); margin-bottom: 20px; }
+        .ev-text p { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 20px; }
+        .ev-text ul { list-style: none; }
+        .ev-text li { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .ev-text li i { color: var(--brand-yellow); }
+        .ev-img { flex: 1; text-align: center; } .ev-img i { font-size: 10rem; color: #1b5e20; }
 
-        /* STEPS */
-        .steps-section { background: var(--bg-gray); padding: 80px 20px; }
-        .section-title { text-align: center; font-size: 2.2rem; font-weight: 900; color: var(--brand-green); margin-bottom: 50px; }
-        .steps-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-        .step-num { width: 60px; height: 60px; background: var(--brand-green); color: white; font-size: 1.5rem; font-weight: 900; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin: 0 auto 20px; }
-        .step-item h4 { font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; }
-        .step-item p { font-size: 0.9rem; color: var(--text-gray); }
+        .faq-section { max-width: 900px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border-color); padding: 25px 0; }
+        .faq-item h4 { font-size: 1.25rem; font-weight: 700; color: var(--brand-green); margin-bottom: 10px; display: flex; align-items: center; gap: 10px;}
+        .faq-item p { font-size: 1.05rem; color: var(--text-gray); padding-left: 30px;}
 
-        /* FOOTER */
-        footer { padding: 60px 40px 20px; border-top: 1px solid var(--border-color); background: #fff;}
-        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; gap: 30px; }
-        .footer-col h5 { font-size: 1rem; font-weight: 700; margin-bottom: 20px; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul a { font-size: 0.85rem; color: var(--text-dark); font-weight: 500; transition: 0.2s;}
-        .footer-col ul a:hover { color: var(--brand-green); }
-        .company-info p { font-size: 0.85rem; font-weight: 700; margin: 15px 0; text-transform: uppercase; }
-        .social-icons a { font-size: 1.5rem; color: var(--text-dark); margin-right: 15px; }
-        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); color: var(--text-gray); font-size: 0.9rem; }
+        footer { padding: 80px 40px 30px; border-top: 1px solid var(--border-color); background: #fff;}
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2.5fr 1fr 1fr 1fr 1.5fr; gap: 40px; }
+        .footer-col h5 { font-size: 1.1rem; font-weight: 800; margin-bottom: 25px; color: var(--brand-green);}
+        .footer-col ul { list-style: none; } .footer-col ul li { margin-bottom: 15px; } .footer-col ul a { font-size: 0.95rem; color: var(--text-gray); font-weight: 500; transition: 0.2s;} .footer-col ul a:hover { color: var(--brand-yellow-dark); }
+        .social-icons a { font-size: 1.8rem; color: var(--brand-green); margin-right: 20px; }
+        .footer-bottom { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-color); color: #888; font-size: 0.95rem; }
 
-        @media screen and (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr 1fr; } .steps-grid { grid-template-columns: 1fr 1fr; gap: 40px;} }
-        @media screen and (max-width: 768px) { .nav-links, .lang-switch { display: none; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media screen and (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } .ev-program {flex-direction: column; text-align: center;} }
+        @media screen and (max-width: 768px) { .nav-links { display: none; } .driver-hero h1 { font-size: 2.5rem;} }
     </style>
 </head>
 <body>
@@ -67,43 +73,87 @@
             <a href="dieu-khoan.html">Hỗ trợ</a>
         </nav>
         <div class="header-actions">
-            <a href="#" class="btn-download">ĐĂNG KÝ LÁI XE</a>
-            <div class="lang-switch"><span class="active">VN</span> | <span>EN</span></div>
+            <a href="#" class="btn-download">ĐĂNG KÝ TRỰC TUYẾN</a>
         </div>
     </header>
     <div class="yellow-stripe"></div>
 
     <section class="driver-hero">
-        <h1>Làm Chủ Cuộc Sống Cùng Sonla Go</h1>
-        <p>Gia nhập cộng đồng tài xế công nghệ đầu tiên tại Sơn La. Tự do thời gian, gia tăng thu nhập với chính sách chiết khấu minh bạch và hấp dẫn nhất.</p>
-        <a href="#" class="btn-register">Đăng ký trực tuyến ngay</a>
+        <h1>Bật App Liền Tay<br>Thu Nhập Mê Say</h1>
+        <p>Tham gia cộng đồng tài xế Sonla Go ngay hôm nay. Trở thành đối tác chiến lược với nền tảng gọi xe công nghệ chiết khấu thấp nhất thị trường dành riêng cho Sơn La.</p>
+        <a href="#" class="btn-register">TẢI APP DRIVER & ĐĂNG KÝ</a>
     </section>
 
-    <section class="steps-section">
-        <h2 class="section-title">4 Bước Đăng Ký Đơn Giản</h2>
-        <div class="steps-grid">
-            <div class="step-item"><div class="step-num">1</div><h4>Chuẩn bị hồ sơ</h4><p>CCCD, GPLX, Đăng ký xe.</p></div>
-            <div class="step-item"><div class="step-num">2</div><h4>Đăng ký online</h4><p>Điền thông tin và tải ảnh lên hệ thống.</p></div>
-            <div class="step-item"><div class="step-num">3</div><h4>Đào tạo & Kích hoạt</h4><p>Tham gia khóa đào tạo quy chuẩn.</p></div>
-            <div class="step-item"><div class="step-num">4</div><h4>Nhận cuốc</h4><p>Bắt đầu gia tăng thu nhập mỗi ngày.</p></div>
+    <section class="section-padding">
+        <h2 class="section-title">Tại Sao Nên Trở Thành Đối Tác Sonla Go?</h2>
+        <div class="benefit-grid">
+            <div class="benefit-card">
+                <i class="fas fa-wallet"></i>
+                <h3>Chiết Khấu Thấp Nhất</h3>
+                <p>Khẳng định mức phí nền tảng cực kỳ cạnh tranh. Tối đa hóa thu nhập thực nhận cho mỗi cuốc xe của bạn so với các ứng dụng khác.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Thưởng Năng Suất Hàng Ngày</h3>
+                <p>Hệ thống nhiệm vụ rõ ràng: Chạy càng nhiều, thưởng càng lớn. Nhận thêm tiền thưởng vào ví khi hoàn thành chỉ tiêu doanh thu mỗi ngày.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-headset"></i>
+                <h3>Đội Ngũ Hỗ Trợ 24/7</h3>
+                <p>Không bao giờ cô đơn trên đường. Tổng đài hỗ trợ đối tác địa phương trực 24/7, xử lý ngay lập tức các sự cố hoặc thắc mắc của tài xế.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Khối Ưu đãi xe điện & Ca đêm -->
+    <section class="section-padding" style="padding-top: 0;">
+        <div class="ev-program">
+            <div class="ev-text">
+                <h3>Chính Sách Đặc Quyền Tài Xế Tiên Phong</h3>
+                <p>Sonla Go xây dựng các chương trình thưởng đặc biệt nhằm thúc đẩy sự phát triển của giao thông xanh và đáp ứng nhu cầu di chuyển của người dân Sơn La mọi lúc mọi nơi.</p>
+                <ul>
+                    <li><i class="fas fa-car-battery"></i> <strong>Chủ xe VinFast VF3, VF5:</strong> Giảm ngay 50% phí chiết khấu nền tảng trong 6 tháng đầu. Ưu tiên điều phối cuốc xe.</li>
+                    <li><i class="fas fa-moon"></i> <strong>Thưởng Ca Đêm (19:00 - 24:00):</strong> Phụ phí cộng thêm 20% trên mỗi cuốc xe thành công, đảm bảo thu nhập hấp dẫn cho tài xế chạy tối.</li>
+                </ul>
+            </div>
+            <div class="ev-img">
+                <i class="fas fa-charging-station"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Câu hỏi thường gặp -->
+    <section class="section-padding">
+        <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+        <div class="faq-section">
+            <div class="faq-item">
+                <h4><i class="fas fa-question-circle"></i> Hồ sơ đăng ký cần những giấy tờ gì?</h4>
+                <p>Hồ sơ bản gốc để chụp ảnh bao gồm: Căn cước công dân (CCCD) gắn chip, Giấy phép lái xe (hạng A1/A2 cho xe máy hoặc B2 trở lên cho ô tô), Giấy đăng ký xe (Cà vẹt) và Bảo hiểm TNDS bắt buộc còn hạn.</p>
+            </div>
+            <div class="faq-item">
+                <h4><i class="fas fa-question-circle"></i> Bao lâu thì hồ sơ của tôi được duyệt?</h4>
+                <p>Nếu bạn điền đầy đủ thông tin và tải ảnh giấy tờ rõ nét, hệ thống sẽ duyệt hồ sơ trực tuyến trong vòng 24 - 48 giờ làm việc. Bạn sẽ nhận được thông báo qua Zalo OA ngay khi tài khoản được kích hoạt.</p>
+            </div>
+            <div class="faq-item">
+                <h4><i class="fas fa-question-circle"></i> Quy trình rút tiền như thế nào?</h4>
+                <p>Bạn có thể thực hiện lệnh rút tiền từ Ví Tài Xế về Tài khoản Ngân hàng đã liên kết bất cứ lúc nào. Tiền sẽ được chuyển về tài khoản của bạn ngay lập tức hoặc chậm nhất trong ngày làm việc.</p>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-grid">
-            <div class="footer-col company-info">
-                <a href="index.html"><img src="logo.png" alt="Sonla Go" style="height: 45px; width: auto;"></a>
-                <p>CÔNG TY CỔ PHẦN CÔNG NGHỆ & DỊCH VỤ SONLA GO</p>
-                <div class="social-icons"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
+            <div class="footer-col" style="grid-column: span 1;">
+                <a href="index.html"><img src="logo.png" alt="Sonla Go" style="height: 50px; margin-bottom: 20px;"></a>
+                <p style="font-size: 0.95rem; color: #555; margin-bottom: 25px;">Siêu ứng dụng đa dịch vụ số 1 tại Sơn La. Kết nối giao thương thông minh, minh bạch và an toàn.</p>
+                <div class="social-icons"><a href="#"><i class="fab fa-facebook-square"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
             </div>
-            <div class="footer-col"><h5>Hỗ trợ</h5><ul><li><a href="tel:0328346999">Hotline: 0328346999</a></li><li><a href="mailto:cskh@sonlago.vn">Email: cskh@sonlago.vn</a></li><li><a href="dieu-khoan.html">Điều khoản sử dụng</a></li></ul></div>
-            <div class="footer-col"><h5>Công ty</h5><ul><li><a href="cong-ty.html">Về chúng tôi</a></li><li><a href="cong-ty.html">Tin tức</a></li></ul></div>
-            <div class="footer-col"><h5>KH cá nhân</h5><ul><li><a href="index.html">Dịch vụ Gọi xe</a></li><li><a href="index.html">Giao hàng</a></li></ul></div>
-            <div class="footer-col"><h5>Doanh nghiệp</h5><ul><li><a href="doanh-nghiep.html">SonlaForBusiness</a></li><li><a href="nha-hang.html">Hợp tác nhà hàng</a></li></ul></div>
-            <div class="footer-col"><h5>Tài xế</h5><ul><li><a href="tai-xe.html">Đăng ký Tài xế</a></li><li><a href="tai-xe.html">Cộng đồng</a></li></ul></div>
+            <div class="footer-col"><h5>Hỗ trợ</h5><ul><li><a href="#">Hotline: 0328346999</a></li><li><a href="#">Email: cskh@sonlago.vn</a></li><li><a href="dieu-khoan.html">Điều khoản sử dụng</a></li></ul></div>
+            <div class="footer-col"><h5>Công ty</h5><ul><li><a href="cong-ty.html">Về chúng tôi</a></li><li><a href="#">Tuyển dụng</a></li></ul></div>
+            <div class="footer-col"><h5>Dịch vụ</h5><ul><li><a href="index.html">SonlaBike</a></li><li><a href="index.html">SonlaCar (Taxi EV)</a></li><li><a href="index.html">SonlaFood</a></li></ul></div>
+            <div class="footer-col"><h5>Đối tác</h5><ul><li><a href="doanh-nghiep.html">SonlaForBusiness</a></li><li><a href="tai-xe.html">Đăng ký Tài xế</a></li><li><a href="nha-hang.html">Hợp tác nhà hàng</a></li></ul></div>
         </div>
-        <div class="footer-bottom">© 2026 CÔNG TY CỔ PHẦN CÔNG NGHỆ & DỊCH VỤ SONLA GO. Mọi bản quyền được bảo lưu.</div>
+        <div class="footer-bottom">© 2026 CÔNG TY CỔ PHẦN CÔNG NGHỆ & DỊCH VỤ SONLA GO. Mã số doanh nghiệp: 5500684396.</div>
     </footer>
 </body>
 </html>
