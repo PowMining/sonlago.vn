@@ -9,7 +9,7 @@
     <style>
         :root { --brand-yellow: #FFC107; --brand-green: #2E7D32; --brand-green-dark: #1b5e20; --text-dark: #111111; --text-gray: #666666; --bg-gray: #f8f9fa; --border-color: #eeeeee; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { color: var(--text-dark); background-color: #ffffff; line-height: 1.6; }
+        body { color: var(--text-dark); background-color: #ffffff; line-height: 1.6; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; }
         header { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; height: 80px; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; background: #fff; z-index: 100;}
         .logo-container img { height: 40px; width: auto; display: block; }
@@ -50,7 +50,7 @@
         .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2.5fr 1fr 1fr 1fr 1.5fr; gap: 40px; }
         .footer-col h5 { font-size: 1.1rem; font-weight: 800; margin-bottom: 25px; color: var(--brand-green);}
         .footer-col ul { list-style: none; } .footer-col ul li { margin-bottom: 15px; } .footer-col ul a { font-size: 0.95rem; color: var(--text-gray); font-weight: 500; transition: 0.2s;} .footer-col ul a:hover { color: var(--brand-yellow-dark); }
-        .social-icons a { font-size: 1.8rem; color: var(--brand-green); margin-right: 20px; }
+        .social-icons a { font-size: 1.8rem; color: var(--brand-green); margin-right: 20px; transition: 0.2s;} .social-icons a:hover { transform: translateY(-3px); display: inline-block;}
         .footer-bottom { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-color); color: #888; font-size: 0.95rem; }
 
         @media screen and (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
@@ -69,7 +69,7 @@
             <a href="dieu-khoan.html">Hỗ trợ</a>
         </nav>
         <div class="header-actions">
-            <a href="#" class="btn-download">MỞ TRÊN ZALO</a>
+            <a href="https://zalo.me/3007391773317245488" target="_blank" class="btn-download">MỞ ZALO MINI APP</a>
             <div class="lang-switch"><span class="active">VN</span> | <span>EN</span></div>
         </div>
     </header>
@@ -85,7 +85,6 @@
             <h2>Câu Chuyện Thương Hiệu</h2>
             <p>Khởi nguồn từ khát vọng mang công nghệ giải quyết các nhu cầu thiết yếu hàng ngày, Sonla Go được xây dựng với định vị là một "Siêu ứng dụng" thuần Việt, am hiểu sâu sắc văn hóa và thói quen sinh hoạt của người dân tỉnh Sơn La nói riêng và khu vực Tây Bắc nói chung.</p>
             <p>Chúng tôi không chỉ là một ứng dụng gọi xe hay giao hàng. Sonla Go là một nền kinh tế số thu nhỏ, nơi kết nối hàng chục ngàn Đối tác tài xế, Nhà hàng, Hộ kinh doanh với Khách hàng thông qua các thuật toán thông minh, minh bạch và tối ưu chi phí nhất. Việc tiên phong đưa toàn bộ dịch vụ lên nền tảng <strong>Zalo Mini App</strong> chính là minh chứng cho nỗ lực mang công nghệ đến gần hơn với mọi tầng lớp người dân, xóa bỏ hoàn toàn rào cản về cài đặt ứng dụng phức tạp.</p>
-            
             <div class="highlight">
                 "Sứ mệnh cao cả nhất của Sonla Go là song hành cùng sự thịnh vượng của các Đối tác, đồng thời thúc đẩy nền kinh tế số của tỉnh Sơn La phát triển mạnh mẽ và bền vững."
             </div>
@@ -108,17 +107,17 @@
                 <div class="value-card">
                     <i class="fas fa-bullseye"></i>
                     <h3>Lấy Khách Hàng Làm Trọng Tâm</h3>
-                    <p>Mọi quyết định cải tiến công nghệ, nâng cấp Zalo Mini App và quy trình vận hành đều xuất phát từ trải nghiệm thực tế của người dùng Sơn La, nhằm mang lại dịch vụ thân thiện và đáng tin cậy nhất.</p>
+                    <p>Mọi quyết định cải tiến công nghệ, nâng cấp Zalo Mini App và quy trình vận hành đều xuất phát từ trải nghiệm thực tế của người dùng Sơn La.</p>
                 </div>
                 <div class="value-card">
                     <i class="fas fa-hand-holding-usd"></i>
                     <h3>Minh Bạch & Công Bằng</h3>
-                    <p>Hệ thống máy chủ áp dụng thuật toán hiện đại để tự động hóa hoàn toàn việc tính toán giá cước. Đảm bảo chiết khấu thấp cho Đối tác và mức phí niêm yết rõ ràng, không "hét giá" cho Khách hàng.</p>
+                    <p>Hệ thống máy chủ áp dụng thuật toán hiện đại để tự động hóa hoàn toàn việc tính toán giá cước. Đảm bảo chiết khấu thấp cho Đối tác và mức phí niêm yết rõ ràng.</p>
                 </div>
                 <div class="value-card">
                     <i class="fas fa-leaf"></i>
                     <h3>Tiên Phong Chuyển Đổi Xanh</h3>
-                    <p>Khuyến khích và ưu đãi mạnh mẽ cho mạng lưới xe điện (VinFast VF3, VF5). Cam kết phát triển hệ sinh thái giao thông không khí thải, bảo vệ môi trường trong lành của vùng núi Tây Bắc.</p>
+                    <p>Khuyến khích và ưu đãi mạnh mẽ cho mạng lưới xe điện (VinFast VF3, VF5). Cam kết phát triển hệ sinh thái giao thông không khí thải.</p>
                 </div>
             </div>
         </div>
@@ -129,14 +128,50 @@
             <div class="footer-col" style="grid-column: span 1;">
                 <a href="index.html"><img src="logo.png" alt="Sonla Go" style="height: 50px; margin-bottom: 20px;"></a>
                 <p style="font-size: 0.95rem; color: #555; margin-bottom: 25px;">Siêu ứng dụng đa dịch vụ số 1 tại Sơn La. Kết nối giao thương thông minh, minh bạch và an toàn.</p>
-                <div class="social-icons"><a href="#"><i class="fab fa-facebook-square"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
+                <div class="social-icons">
+                    <a href="https://zalo.me/3007391773317245488" target="_blank"><i class="fab fa-zalo"></i></a>
+                    <a href="#"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
-            <div class="footer-col"><h5>Hỗ trợ</h5><ul><li><a href="#">Hotline: 0328346999</a></li><li><a href="#">Email: cskh@sonlago.vn</a></li><li><a href="dieu-khoan.html">Điều khoản sử dụng</a></li></ul></div>
-            <div class="footer-col"><h5>Công ty</h5><ul><li><a href="cong-ty.html">Về chúng tôi</a></li><li><a href="#">Tuyển dụng</a></li></ul></div>
-            <div class="footer-col"><h5>Dịch vụ</h5><ul><li><a href="index.html">SonlaBike</a></li><li><a href="index.html">SonlaCar (Taxi EV)</a></li><li><a href="index.html">SonlaFood</a></li></ul></div>
-            <div class="footer-col"><h5>Đối tác</h5><ul><li><a href="doanh-nghiep.html">SonlaForBusiness</a></li><li><a href="tai-xe.html">Đăng ký Tài xế</a></li><li><a href="nha-hang.html">Hợp tác nhà hàng</a></li></ul></div>
+            <div class="footer-col">
+                <h5>Hỗ trợ</h5>
+                <ul>
+                    <li><a href="https://zalo.me/3007391773317245488" target="_blank">Chat với CSKH</a></li>
+                    <li><a href="tel:0328346999">Hotline: 0328346999</a></li>
+                    <li><a href="dieu-khoan.html">Điều khoản sử dụng</a></li>
+                    <li><a href="dieu-khoan.html">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Công ty</h5>
+                <ul>
+                    <li><a href="cong-ty.html">Về chúng tôi</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                    <li><a href="#">Tin tức & Báo chí</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Dịch vụ</h5>
+                <ul>
+                    <li><a href="index.html">SonlaCar (Taxi EV)</a></li>
+                    <li><a href="index.html">SonlaDelivery</a></li>
+                    <li><a href="index.html">SonlaFood & Đi chợ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Đối tác</h5>
+                <ul>
+                    <li><a href="doanh-nghiep.html">SonlaForBusiness</a></li>
+                    <li><a href="tai-xe.html">Đăng ký Tài xế</a></li>
+                    <li><a href="nha-hang.html">Hợp tác nhà hàng</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-bottom">© 2026 CÔNG TY CỔ PHẦN CÔNG NGHỆ & DỊCH VỤ SONLA GO. Mã số doanh nghiệp: 5500684396.</div>
+        <div class="footer-bottom">
+            © 2026 CÔNG TY CỔ PHẦN CÔNG NGHỆ & DỊCH VỤ SONLA GO. Mã số doanh nghiệp: 5500684396.<br>
+            Địa chỉ: KĐT Kim Sơn, Phường Chiềng Cơi, Tỉnh Sơn La, Việt Nam.
+        </div>
     </footer>
 </body>
 </html>
