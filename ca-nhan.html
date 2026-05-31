@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonla Go - Khách hàng cá nhân</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --brand-yellow: #FFC107; --brand-green: #2E7D32; --text-dark: #111111; --text-gray: #666666; --bg-gray: #f8f9fa; --border-color: #eeeeee; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { color: var(--text-dark); background-color: #ffffff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        /* HEADER */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; height: 80px; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; background: #fff; z-index: 100;}
+        .logo-container { font-size: 1.8rem; font-weight: 900; } .logo-container .go { color: var(--brand-yellow); }
+        .nav-links { display: flex; gap: 30px; font-weight: 600; font-size: 0.95rem; }
+        .nav-links a { padding: 28px 0; border-bottom: 3px solid transparent; transition: 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--brand-yellow); border-bottom: 3px solid var(--brand-yellow); }
+        .yellow-stripe { height: 40px; background-color: var(--brand-yellow); width: 100%; }
+
+        /* CUSTOMER HERO */
+        .customer-hero { background: var(--bg-gray); padding: 80px 20px; text-align: center; border-bottom: 1px solid var(--border-color); }
+        .customer-hero h1 { font-size: 3rem; font-weight: 900; color: var(--text-dark); margin-bottom: 20px; }
+        .customer-hero h1 span { color: var(--brand-green); }
+        .customer-hero p { font-size: 1.2rem; color: var(--text-gray); max-width: 600px; margin: 0 auto 30px; }
+        
+        .btn-qr { background: var(--brand-yellow); color: var(--text-dark); font-weight: 800; padding: 15px 30px; border-radius: 8px; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; }
+
+        /* SAFETY & LOYALTY */
+        .feature-section { max-width: 1200px; margin: 80px auto; padding: 0 20px; }
+        .feature-row { display: flex; align-items: center; gap: 60px; margin-bottom: 80px; }
+        .feature-row:nth-child(even) { flex-direction: row-reverse; }
+        .feature-text { flex: 1; }
+        .feature-text h2 { font-size: 2.5rem; font-weight: 900; color: var(--brand-green); margin-bottom: 20px; line-height: 1.2; }
+        .feature-text p { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 20px; }
+        .feature-text ul { list-style: none; }
+        .feature-text li { font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .feature-text li i { color: var(--brand-yellow); font-size: 1.5rem; }
+        .feature-img { flex: 1; text-align: center; }
+        .feature-img i { font-size: 12rem; color: var(--brand-green); opacity: 0.9; }
+
+        footer { padding: 40px; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-gray); }
+        @media screen and (max-width: 768px) { .feature-row { flex-direction: column !important; text-align: center; } .nav-links {display: none;} }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container"><span class="sonla">Sonla</span><span class="go">Go</span></div>
+        <nav class="nav-links">
+            <a href="cong-ty.html">Công ty</a>
+            <a href="ca-nhan.html" class="active">Khách hàng cá nhân</a>
+            <a href="doanh-nghiep.html">Khách hàng doanh nghiệp</a>
+            <a href="tai-xe.html">Tài xế</a>
+            <a href="nha-hang.html">Đối tác nhà hàng</a>
+            <a href="dieu-khoan.html">Hỗ trợ</a>
+        </nav>
+    </header>
+    <div class="yellow-stripe"></div>
+
+    <section class="customer-hero">
+        <h1>Một Chạm Đi Muôn Nơi<br><span>Mọi Dịch Vụ</span></h1>
+        <p>Đặt xe giá rẻ, gọi đồ ăn ngon, giao hàng siêu tốc. Tất cả đều dễ dàng thực hiện ngay trên Zalo của bạn mà không cần tải thêm ứng dụng.</p>
+        <a href="#" class="btn-qr"><i class="fas fa-qrcode"></i> Mở Sonla Go trên Zalo</a>
+    </section>
+
+    <section class="feature-section">
+        <!-- Tính năng An toàn -->
+        <div class="feature-row">
+            <div class="feature-text">
+                <h2>An toàn trên mọi hành trình</h2>
+                <p>Sự an toàn của bạn là ưu tiên số một của chúng tôi. Sonla Go áp dụng công nghệ định vị tiên tiến để bảo vệ bạn trong mỗi chuyến đi.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Biết trước giá cước, không lo bị "chặt chém".</li>
+                    <li><i class="fas fa-check-circle"></i> Chia sẻ lộ trình chuyến đi cho người thân.</li>
+                    <li><i class="fas fa-check-circle"></i> Tài xế được xác minh danh tính và đào tạo kỹ lưỡng.</li>
+                </ul>
+            </div>
+            <div class="feature-img">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+        </div>
+
+        <!-- Tính năng Tích điểm -->
+        <div class="feature-row">
+            <div class="feature-text">
+                <h2>Sonla Loyalty - Tích điểm đổi quà</h2>
+                <p>Khách hàng thân thiết luôn nhận được những đặc quyền xứng đáng. Mỗi chuyến đi hay đơn hàng đều mang lại cho bạn điểm thưởng hấp dẫn.</p>
+                <ul>
+                    <li><i class="fas fa-star"></i> Tích điểm trên mỗi 1.000đ chi tiêu.</li>
+                    <li><i class="fas fa-ticket-alt"></i> Đổi điểm lấy mã giảm giá Gọi xe, Đặt đồ ăn.</li>
+                    <li><i class="fas fa-gift"></i> Đặc quyền nâng hạng thành viên (Vàng, Kim Cương).</li>
+                </ul>
+            </div>
+            <div class="feature-img">
+                <i class="fas fa-gem" style="color: var(--brand-yellow);"></i>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 CÔNG TY CỔ PHẦN CÔNG NGHỆ & DỊCH VỤ SONLA GO.</p>
+    </footer>
+</body>
+</html>
